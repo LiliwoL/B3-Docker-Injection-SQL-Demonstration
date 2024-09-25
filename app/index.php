@@ -12,13 +12,20 @@ if ( isset($_POST['username']) && $_POST['username'] != '' )
     $username = $_POST['username'];
     $password = $_POST['password'];
 
+    // Requete préparée nommée
+    $query = "SELECT * FROM users WHERE username=:username AND password=:password;";
+
     // Requete vulnérable
-    $query = "SELECT * FROM users WHERE username='$username' AND password='$password';";
+    //$query = "SELECT * FROM users WHERE username='$username' AND password='$password';";
 
     // Exécution de la requête
     $result = false;
     try{
         $sth = $dbh->prepare( $query );
+
+        // Requêtes paaramétrées avec des types
+        $sth->bindParam(':username', $username, PDO::PARAM_STR);
+        $sth->bindParam(':password', $password, PDO::PARAM_STR);
 
         $sth->execute();
         $result = $sth->fetch(PDO::FETCH_ASSOC);
@@ -26,7 +33,7 @@ if ( isset($_POST['username']) && $_POST['username'] != '' )
     catch (PDOException $e)
     {
         $message = $e->getMessage();
-    }    
+    }
 }else{
     $query = $message = '';
 }
@@ -57,24 +64,24 @@ if ( isset($_POST['username']) && $_POST['username'] != '' )
     <div id="create-account-wrap">
         <p>
             <?php
-                echo $query;
+            echo $query;
             ?>
         </p>
         <p>
             <?php
-                if ( isset($result) && $result!==false ) {
-                    // Ok
-                    print_r("Login successful as user: $username");
-                    print("<br/>");
-                    print("<br/>");
-                    var_dump($result);
-                } else {
-                    if ( isset($error) ) {
-                        // Error
-                        print_r("Error \n");
-                        print_r( $message );
-                    }
+            if ( isset($result) && $result!==false ) {
+                // Ok
+                print_r("Login successful as user: $username");
+                print("<br/>");
+                print("<br/>");
+                var_dump($result);
+            } else {
+                if ( isset($error) ) {
+                    // Error
+                    print_r("Error \n");
+                    print_r( $message );
                 }
+            }
             ?>
         </p>
     </div>
