@@ -12,9 +12,6 @@ if ( isset($_POST['username']) && $_POST['username'] != '' )
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    // Requete préparée nommée
-    //$query = "SELECT * FROM users WHERE username=:username AND password=:password;";
-
     // Requete vulnérable
     $query = "SELECT * FROM users WHERE username='$username' AND password='$password';";
 
@@ -22,10 +19,6 @@ if ( isset($_POST['username']) && $_POST['username'] != '' )
     $result = false;
     try{
         $sth = $dbh->prepare( $query );
-
-        // Requêtes paaramétrées avec des types
-        // $sth->bindParam(':username', $username, PDO::PARAM_STR);
-        // $sth->bindParam(':password', $password, PDO::PARAM_STR);
 
         $sth->execute();
         $result = $sth->fetch(PDO::FETCH_ASSOC);
@@ -39,7 +32,7 @@ if ( isset($_POST['username']) && $_POST['username'] != '' )
 }
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
     <title>Login Form</title>
 
