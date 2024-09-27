@@ -62,7 +62,13 @@ http://127.0.0.1:8081
 
 ---
 
-# Accédez au shell du container MySQL
+# Corrections à apporter
+
+Modifier le fichier **index.php** pour rendre vos injections SQL inopérantes.
+
+# Annexes
+
+## Accédez au shell du container MySQL
 
 ```bash
 bin/shell
