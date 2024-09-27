@@ -7,6 +7,8 @@
                               |__/                             
 ```
 
+![](.README_images/d0009919.png)
+
 <!-- TOC -->
 * [Prérequis](#prérequis)
 * [Lancement](#lancement)
