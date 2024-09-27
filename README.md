@@ -7,6 +7,11 @@
                               |__/                             
 ```
 
+<!-- TOC -->
+* [Prérequis](#prérequis)
+* [Lancement](#lancement)
+<!-- TOC -->
+
 ![](readme_docs/287167c6.png)
 
 Container Docker pour suivre le cours sur les Injections SQL
@@ -16,6 +21,7 @@ Container Docker pour suivre le cours sur les Injections SQL
 * Docker
 * Docker-compose
 * Ports 8000, 8032, 8081 disponibles
+* Docker-Desktop
 
 # Lancement
 
@@ -29,15 +35,16 @@ Lancer le container
 
 ```bash
 cd B3-Docker-Injection-SQL-Demonstration
-bin/start
+bin/start # ou docker-compose up -d
 ```
 
-Accéder à la page web à l'adresse suivante:
+Ce que vous devez voir dans Docker Desktop:
+![](.README_images/16ca2b3c.png)
 
-http://127.0.0.8:8000
 
+Accéder à la page web de l'application à l'adresse suivante:
 
----
+http://127.0.0.1:8000
 
 # Injections SQL possibles
 
