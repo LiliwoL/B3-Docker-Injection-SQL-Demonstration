@@ -15,3 +15,8 @@ insert into users (username, password, email, admin)
 values (
 	'admin', 'd83374167372baf70c14ad4385447cae', 'admin@myforum.com', 'true'
 );
+
+insert into users (username, password, email, admin)
+values (
+       'user1', 'd83374167372baf70c14ad4385447bac', 'user1@myforum.com', 'false'
+   );
