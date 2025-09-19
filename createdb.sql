@@ -11,7 +11,12 @@ create table users (
 	PRIMARY KEY ( id )
 );
 
+
 insert into users (username, password, email, admin)
-values (
-	'admin', 'd83374167372baf70c14ad4385447cae', 'admin@myforum.com', 'true'
-);
+values ('user1', '5f4dcc3b5aa765d61d8327deb882cf99', 'user@gmail.com', 'false');
+insert into users (username, password, email, admin)
+values ('user2', '5f4dcc3b5aa765d61d8327deb882cf99', 'user2@hotmail.fr', 'false');
+insert into users (username, password, email, admin)
+values ('user3', '5f4dcc3b5aa765d61d8327deb882cf99', 'user3@yahoo.co.uk', 'false');
+insert into users (username, password, email, admin)
+values ('admin', 'd83374167372baf70c14ad4385447cae', 'admin@myforum.com', 'true');
